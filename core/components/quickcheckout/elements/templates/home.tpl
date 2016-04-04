@@ -1,0 +1,1 @@
+<div id="quickcheckout-panel-home-div"></div>

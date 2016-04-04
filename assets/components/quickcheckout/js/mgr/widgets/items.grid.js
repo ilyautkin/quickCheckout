@@ -182,7 +182,7 @@ Ext.extend(quickCheckout.grid.Items, MODx.grid.Grid, {
 	},
 
 	getFields: function (config) {
-		return ['id', 'name', 'description', 'active', 'actions'];
+		return ['id', 'name', 'phone', 'address', 'description', 'status', 'active', 'actions'];
 	},
 
 	getColumns: function (config) {
@@ -192,8 +192,18 @@ Ext.extend(quickCheckout.grid.Items, MODx.grid.Grid, {
 			sortable: true,
 			width: 70
 		}, {
-			header: _('quickcheckout_item_name'),
+    		header: _('quickcheckout_item_name'),
 			dataIndex: 'name',
+			sortable: true,
+			width: 200,
+		}, {
+    		header: _('quickcheckout_item_phone'),
+			dataIndex: 'phone',
+			sortable: true,
+			width: 200,
+		}, {
+    		header: _('quickcheckout_item_address'),
+			dataIndex: 'address',
 			sortable: true,
 			width: 200,
 		}, {
@@ -202,12 +212,17 @@ Ext.extend(quickCheckout.grid.Items, MODx.grid.Grid, {
 			sortable: false,
 			width: 250,
 		}, {
+        	header: _('quickcheckout_status'),
+			dataIndex: 'status',
+			sortable: true,
+			width: 200,
+		}, /*{
 			header: _('quickcheckout_item_active'),
 			dataIndex: 'active',
 			renderer: quickCheckout.utils.renderBoolean,
 			sortable: true,
 			width: 100,
-		}, {
+		},*/ {
 			header: _('quickcheckout_grid_actions'),
 			dataIndex: 'actions',
 			renderer: quickCheckout.utils.renderActions,

@@ -1,14 +1,16 @@
 <?php
-$xpdo_meta_map['quickCheckoutItem']= array (
+$xpdo_meta_map['quickCheckoutStatus']= array (
   'package' => 'quickcheckout',
   'version' => '1.1',
-  'table' => 'quickcheckout_items',
+  'table' => 'quickcheckout_statuses',
   'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
-    'name' => '',
-    'description' => '',
+    'name' => NULL,
+    'description' => NULL,
+    'color' => '000000',
     'active' => 1,
+    'rank' => 0,
   ),
   'fieldMeta' => 
   array (
@@ -18,42 +20,41 @@ $xpdo_meta_map['quickCheckoutItem']= array (
       'precision' => '100',
       'phptype' => 'string',
       'null' => false,
-      'default' => '',
     ),
     'description' => 
     array (
       'dbtype' => 'text',
-      'phptype' => 'text',
+      'phptype' => 'string',
       'null' => true,
-      'default' => '',
+    ),
+    'color' => 
+    array (
+      'dbtype' => 'char',
+      'precision' => '6',
+      'phptype' => 'string',
+      'null' => true,
+      'default' => '000000',
     ),
     'active' => 
     array (
       'dbtype' => 'tinyint',
       'precision' => '1',
-      'phptype' => 'boolean',
+      'phptype' => 'integer',
       'null' => true,
       'default' => 1,
+    ),
+    'rank' => 
+    array (
+      'dbtype' => 'tinyint',
+      'precision' => '1',
+      'phptype' => 'integer',
+      'attributes' => 'unsigned',
+      'null' => true,
+      'default' => 0,
     ),
   ),
   'indexes' => 
   array (
-    'name' => 
-    array (
-      'alias' => 'name',
-      'primary' => false,
-      'unique' => false,
-      'type' => 'BTREE',
-      'columns' => 
-      array (
-        'name' => 
-        array (
-          'length' => '',
-          'collation' => 'A',
-          'null' => false,
-        ),
-      ),
-    ),
     'active' => 
     array (
       'alias' => 'active',
@@ -69,6 +70,33 @@ $xpdo_meta_map['quickCheckoutItem']= array (
           'null' => false,
         ),
       ),
+    ),
+    'rank' => 
+    array (
+      'alias' => 'rank',
+      'primary' => false,
+      'unique' => false,
+      'type' => 'BTREE',
+      'columns' => 
+      array (
+        'rank' => 
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+      ),
+    ),
+  ),
+  'aggregates' => 
+  array (
+    'Orders' => 
+    array (
+      'class' => 'quickCheckoutOrder',
+      'local' => 'id',
+      'foreign' => 'status',
+      'cardinality' => 'many',
+      'owner' => 'local',
     ),
   ),
 );

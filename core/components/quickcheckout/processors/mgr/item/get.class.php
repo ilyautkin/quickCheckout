@@ -4,8 +4,8 @@
  * Get an Item
  */
 class quickCheckoutItemGetProcessor extends modObjectGetProcessor {
-	public $objectType = 'quickCheckoutItem';
-	public $classKey = 'quickCheckoutItem';
+	public $objectType = 'quickCheckoutOrder';
+	public $classKey = 'quickCheckoutOrder';
 	public $languageTopics = array('quickcheckout:default');
 	//public $permission = 'view';
 

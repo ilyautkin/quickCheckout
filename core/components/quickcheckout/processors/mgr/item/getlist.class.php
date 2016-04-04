@@ -4,8 +4,8 @@
  * Get a list of Items
  */
 class quickCheckoutItemGetListProcessor extends modObjectGetListProcessor {
-	public $objectType = 'quickCheckoutItem';
-	public $classKey = 'quickCheckoutItem';
+	public $objectType = 'quickCheckoutOrder';
+	public $classKey = 'quickCheckoutOrder';
 	public $defaultSortField = 'id';
 	public $defaultSortDirection = 'DESC';
 	//public $permission = 'list';
@@ -32,6 +32,8 @@ class quickCheckoutItemGetListProcessor extends modObjectGetListProcessor {
 	 * @return xPDOQuery
 	 */
 	public function prepareQueryBeforeCount(xPDOQuery $c) {
+        $c->leftJoin('quickCheckoutStatus', 'Status');
+        
 		$query = trim($this->getProperty('query'));
 		if ($query) {
 			$c->where(array(
@@ -39,6 +41,16 @@ class quickCheckoutItemGetListProcessor extends modObjectGetListProcessor {
 				'OR:description:LIKE' => "%{$query}%",
 			));
 		}
+        if ($status = $this->getProperty('status')) {
+            $c->where(array(
+                'status' => $status,
+            ));
+        }
+        
+        $c->select(
+            $this->modx->getSelectColumns('quickCheckoutOrder', 'quickCheckoutOrder', '', array('status'), true) . ',
+            Status.name as status_name, Status.color'
+        );
 
 		return $c;
 	}
@@ -52,7 +64,9 @@ class quickCheckoutItemGetListProcessor extends modObjectGetListProcessor {
 	public function prepareRow(xPDOObject $object) {
 		$array = $object->toArray();
 		$array['actions'] = array();
-
+        
+        $array['status'] = '<span style="color:#' . $array['color'] . ';">' . $array['status_name'] . '</span>';
+        
 		// Edit
 		$array['actions'][] = array(
 			'cls' => '',
@@ -63,7 +77,7 @@ class quickCheckoutItemGetListProcessor extends modObjectGetListProcessor {
 			'button' => true,
 			'menu' => true,
 		);
-
+        /*
 		if (!$array['active']) {
 			$array['actions'][] = array(
 				'cls' => '',
@@ -86,7 +100,7 @@ class quickCheckoutItemGetListProcessor extends modObjectGetListProcessor {
 				'menu' => true,
 			);
 		}
-
+        */
 		// Remove
 		$array['actions'][] = array(
 			'cls' => '',

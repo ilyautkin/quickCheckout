@@ -1,0 +1,1 @@
+<span class="btn btn-success quickcheckout">Купить в один клик</span>

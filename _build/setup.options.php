@@ -4,11 +4,11 @@ $exists = $chunks = false;
 $output = null;
 switch ($options[xPDOTransport::PACKAGE_ACTION]) {
 	case xPDOTransport::ACTION_INSTALL:
-		//$exists = $modx->getObject('transport.modTransportPackage', array('package_name' => 'pdoTools'));
+        $exists = $modx->getObject('transport.modTransportPackage', array('package_name' => 'AjaxForm'));
 		break;
 
 	case xPDOTransport::ACTION_UPGRADE:
-		//$exists = $modx->getObject('transport.modTransportPackage', array('package_name' => 'pdoTools'));
+		$exists = $modx->getObject('transport.modTransportPackage', array('package_name' => 'AjaxForm'));
 		if (!empty($options['attributes']['chunks'])) {
 			$chunks = '<ul id="formCheckboxes" style="height:200px;overflow:auto;">';
 			foreach ($options['attributes']['chunks'] as $k => $v) {
@@ -28,17 +28,17 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
 }
 
 $output = '';
-/*
+
 if (!$exists) {
 	switch ($modx->getOption('manager_language')) {
 		case 'ru':
-			$output = 'Этот компонент требует <b>pdoTools</b> для быстрой работы сниппетов.<br/>Он будет автоматически скачан и установлен.';
+			$output = 'Этот компонент требует <b>AjaxForm</b> для отправки формы.<br/>Он будет автоматически скачан и установлен.';
 			break;
 		default:
-			$output = 'This component requires <b>pdoTools</b> for fast work of snippets.<br/><br/>It will be automaticly downloaded and installed?';
+			$output = 'This component requires <b>AjaxForm</b> for form processing.<br/><br/>It will be automaticly downloaded and installed?';
 	}
 }
-*/
+
 
 if ($chunks) {
 	/*

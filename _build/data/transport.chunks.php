@@ -3,7 +3,40 @@
 $chunks = array();
 
 $tmp = array(
-	'tpl.quickCheckout.item' => array(
+    'tpl.quickCheckout.button' => array(
+    	'file' => 'button',
+		'description' => '',
+	),
+    'tpl.quickCheckout.email' => array(
+        'file' => 'email',
+		'description' => '',
+	),
+    'tpl.quickCheckout.form' => array(
+        'file' => 'form',
+		'description' => '',
+	),
+    'tpl.quickCheckout.form.outer' => array(
+        'file' => 'form_outer',
+		'description' => '',
+	),
+    'tpl.quickCheckout.product' => array(
+        'file' => 'product',
+		'description' => '',
+	),
+    'tpl.quickCheckout.product.outer' => array(
+        'file' => 'product_outer',
+		'description' => '',
+	),
+    'tpl.quickCheckout.productRow' => array(
+        'file' => 'productRow',
+		'description' => '',
+	),
+    'tpl.quickCheckout.productRow.outer' => array(
+        'file' => 'productRow_outer',
+		'description' => '',
+	),
+	/*
+    'tpl.quickCheckout.item' => array(
 		'file' => 'item',
 		'description' => '',
 	),
@@ -11,6 +44,7 @@ $tmp = array(
 		'file' => 'office',
 		'description' => '',
 	),
+    */
 );
 
 // Save chunks for setup options

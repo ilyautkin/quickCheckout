@@ -1,0 +1,10 @@
+[[!AjaxForm?
+	&form=`[[+form]]`
+	&emailTpl=`[[+emailTpl]]`
+	&hooks=`[[+hooks]]`
+	&emailSubject=`[[+emailSubject]]`
+	&emailTo=`[[+emailTo]]`
+    &validate=`[[+validate]]`
+    &validationErrorMessage=`[[+validationErrorMessage]]`
+    &successMessage=`[[+successMessage]]`
+]]

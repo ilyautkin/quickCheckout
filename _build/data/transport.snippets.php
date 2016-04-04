@@ -7,6 +7,10 @@ $tmp = array(
 		'file' => 'quickcheckout',
 		'description' => '',
 	),
+	'quickCheckout.hook' => array(
+		'file' => 'quickcheckoutHook',
+		'description' => '',
+	),
 );
 
 foreach ($tmp as $k => $v) {

@@ -4,8 +4,8 @@
  * Disable an Item
  */
 class quickCheckoutItemDisableProcessor extends modObjectProcessor {
-	public $objectType = 'quickCheckoutItem';
-	public $classKey = 'quickCheckoutItem';
+	public $objectType = 'quickCheckoutOrder';
+	public $classKey = 'quickCheckoutOrder';
 	public $languageTopics = array('quickcheckout');
 	//public $permission = 'save';
 
@@ -24,7 +24,7 @@ class quickCheckoutItemDisableProcessor extends modObjectProcessor {
 		}
 
 		foreach ($ids as $id) {
-			/** @var quickCheckoutItem $object */
+			/** @var quickCheckoutOrder $object */
 			if (!$object = $this->modx->getObject($this->classKey, $id)) {
 				return $this->failure($this->modx->lexicon('quickcheckout_item_err_nf'));
 			}

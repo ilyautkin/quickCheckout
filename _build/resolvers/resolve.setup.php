@@ -128,7 +128,7 @@ switch (@$options[xPDOTransport::PACKAGE_ACTION]) {
 		$modx = &$object->xpdo;
 		/* Checking and installing required packages */
 		$packages = array(
-			'pdoTools' => '2.1.0-pl',
+			'AjaxForm' => '1.1.5-pl',
 		);
 
 		foreach ($packages as $package_name => $version) {

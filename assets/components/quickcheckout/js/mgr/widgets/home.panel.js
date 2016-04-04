@@ -20,13 +20,23 @@ quickCheckout.panel.Home = function (config) {
 			border: true,
 			hideMode: 'offsets',
 			items: [{
-				title: _('quickcheckout_items'),
+    			title: _('quickcheckout_items'),
 				layout: 'anchor',
 				items: [{
 					html: _('quickcheckout_intro_msg'),
 					cls: 'panel-desc',
 				}, {
 					xtype: 'quickcheckout-grid-items',
+					cls: 'main-wrapper',
+				}]
+			}, {
+    			title: _('quickcheckout_statuses'),
+				layout: 'anchor',
+				items: [{
+					html: _('quickcheckout_intro_msg'),
+					cls: 'panel-desc',
+				}, {
+					xtype: 'quickcheckout-grid-status',
 					cls: 'main-wrapper',
 				}]
 			}]

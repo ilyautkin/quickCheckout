@@ -1,10 +1,10 @@
 --------------------
 quickCheckout
 --------------------
-Author: John Doe <john@doe.com>
+Author: Ilya Utkin <ilyautkin@mail.ru>
 --------------------
 
-A basic Extra for MODx Revolution.
+Buy in one click for MODX
 
 Feel free to suggest ideas/improvements/bugs on GitHub:
-http://github.com/username/quickCheckout/issues
+https://github.com/ilyautkin/quickCheckout/issues

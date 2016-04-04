@@ -1,0 +1,1 @@
+<div class="QCproductRowOuter">[[+product]]</div>

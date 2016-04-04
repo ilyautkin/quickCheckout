@@ -22,12 +22,26 @@ Ext.extend(quickCheckout.window.CreateItem, MODx.Window, {
 
 	getFields: function (config) {
 		return [{
-			xtype: 'textfield',
+    		xtype: 'textfield',
 			fieldLabel: _('quickcheckout_item_name'),
 			name: 'name',
 			id: config.id + '-name',
 			anchor: '99%',
-			allowBlank: false,
+			allowBlank: true,
+		}, {
+    		xtype: 'textfield',
+			fieldLabel: _('quickcheckout_item_phone'),
+			name: 'phone',
+			id: config.id + '-phone',
+			anchor: '99%',
+			allowBlank: true,
+		}, {
+    		xtype: 'textfield',
+			fieldLabel: _('quickcheckout_item_address'),
+			name: 'address',
+			id: config.id + '-address',
+			anchor: '99%',
+			allowBlank: true,
 		}, {
 			xtype: 'textarea',
 			fieldLabel: _('quickcheckout_item_description'),
@@ -36,12 +50,19 @@ Ext.extend(quickCheckout.window.CreateItem, MODx.Window, {
 			height: 150,
 			anchor: '99%'
 		}, {
+            xtype: 'quickcheckout-combo-status',
+            name: 'status',
+            id: config.id + '-status',
+            fieldLabel: _('quickcheckout_item_status'),
+            anchor: '100%',
+            order_id: 0
+        }/*, {
 			xtype: 'xcheckbox',
 			boxLabel: _('quickcheckout_item_active'),
 			name: 'active',
 			id: config.id + '-active',
 			checked: true,
-		}];
+		}*/];
 	},
 
 	loadDropZones: function() {
@@ -49,7 +70,6 @@ Ext.extend(quickCheckout.window.CreateItem, MODx.Window, {
 
 });
 Ext.reg('quickcheckout-item-window-create', quickCheckout.window.CreateItem);
-
 
 quickCheckout.window.UpdateItem = function (config) {
 	config = config || {};
@@ -70,6 +90,7 @@ quickCheckout.window.UpdateItem = function (config) {
 		}]
 	});
 	quickCheckout.window.UpdateItem.superclass.constructor.call(this, config);
+    
 };
 Ext.extend(quickCheckout.window.UpdateItem, MODx.Window, {
 
@@ -84,7 +105,21 @@ Ext.extend(quickCheckout.window.UpdateItem, MODx.Window, {
 			name: 'name',
 			id: config.id + '-name',
 			anchor: '99%',
-			allowBlank: false,
+			allowBlank: true,
+		}, {
+        	xtype: 'textfield',
+			fieldLabel: _('quickcheckout_item_phone'),
+			name: 'phone',
+			id: config.id + '-phone',
+			anchor: '99%',
+			allowBlank: true,
+		}, {
+    		xtype: 'textfield',
+			fieldLabel: _('quickcheckout_item_address'),
+			name: 'address',
+			id: config.id + '-address',
+			anchor: '99%',
+			allowBlank: true,
 		}, {
 			xtype: 'textarea',
 			fieldLabel: _('quickcheckout_item_description'),
@@ -93,11 +128,18 @@ Ext.extend(quickCheckout.window.UpdateItem, MODx.Window, {
 			anchor: '99%',
 			height: 150,
 		}, {
+            xtype: 'quickcheckout-combo-status',
+            name: 'status',
+            id: config.id + '-status',
+            fieldLabel: _('quickcheckout_item_status'),
+            anchor: '100%',
+            order_id: config.record.id
+        }/*, {
 			xtype: 'xcheckbox',
 			boxLabel: _('quickcheckout_item_active'),
 			name: 'active',
 			id: config.id + '-active',
-		}];
+		}*/];
 	},
 
 	loadDropZones: function() {
